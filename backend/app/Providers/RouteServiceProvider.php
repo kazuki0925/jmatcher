@@ -33,6 +33,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    protected $namespace = 'App\\Http\\Controllers';
+    
     public function boot()
     {
         $this->configureRateLimiting();
@@ -50,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/front.php'));
  
             // 管理画面
-            Route::prefix('admin')
+            Route::prefix(['web', 'auth'])
                 ->middleware('web')
                 ->namespace($this->namespace . '\Back')
                 ->as('back.')

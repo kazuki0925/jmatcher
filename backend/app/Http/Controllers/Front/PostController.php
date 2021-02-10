@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::publicList();   
+        $posts = Post::publicList()
+             
         return view('front.posts.index', compact('posts'));
     }
 
@@ -46,10 +47,11 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function show(int $id)
-    {
+     {
         $post = Post::publicFindById($id);
+  
         return view('front.posts.show', compact('post'));
-    }
+     }
 
     /**
      * Show the form for editing the specified resource.
